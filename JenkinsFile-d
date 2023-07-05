@@ -1,10 +1,25 @@
 pipeline {
- agent any
+ //agent any
+
+ //Node name agent
+ agent{
+  node { label 'workstation' }
+ }
+
+ //Label name agent
+ agent{
+     node { label 'terraform' }
+  }
+
+  environment {
+  SAMPLE_URL = "google.com"
+  }
 
  stages {
    stage("one") {
       steps {
          echo "one"
+         sh "env"
       }
    }
 
